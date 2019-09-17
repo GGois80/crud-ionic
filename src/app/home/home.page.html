@@ -1,0 +1,63 @@
+<ion-header>
+    <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button><img src="../assets/icon/Logo2.png"/></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+    <ion-toolbar>
+      <ion-title color="dark"><h3>Cadastro de Veiculo</h3></ion-title>
+    </ion-toolbar>
+    <ion-item class="preto">
+      <ion-label position="floating">Nome:</ion-label>
+      <ion-input [(ngModel)]="newItem.nome"></ion-input>
+    </ion-item>
+    <ion-item class="preto">
+      <ion-label position="floating">Marca:</ion-label>
+      <ion-input [(ngModel)]="newItem.marca"></ion-input>
+    </ion-item>
+    <ion-item class="preto">
+      <ion-label position="floating">Preço:</ion-label>
+      <ion-input [(ngModel)]="newItem.preco"></ion-input>
+    </ion-item>
+    <ion-item class="preto">
+      <ion-label position="floating">Cor:</ion-label>
+      <ion-input [(ngModel)]="newItem.cor"></ion-input>
+    </ion-item>
+    <ion-item class="preto">
+      <ion-label position="floating">Placa:</ion-label>
+      <ion-input [(ngModel)]="newItem.placa"></ion-input>
+    </ion-item>
+    <ion-item class="preto">
+      <ion-label position="floating">RENAVAM:</ion-label>
+      <ion-input [(ngModel)]="newItem.renavam"></ion-input>
+    </ion-item>
+    <div class="centro">
+        <ion-item  class="preto centro">
+            <ion-button color="primary" (click)="addItem()" type="button" name="button">Cadastrar Veiculo</ion-button>
+        </ion-item>
+    </div>
+    <br>
+    <br>
+    <br>
+    <ion-toolbar class="centro">
+      <ion-title>Veiculos Cadastrador</ion-title>
+    </ion-toolbar>
+    <ion-list #mylist>
+      <ion-item-sliding class="borda"  *ngFor="let item of items">
+        <ion-item color="primary">
+          <ion-label>{{ item.nome }}</ion-label>
+          <ion-label>{{ item.preco }}</ion-label>
+          <ion-label>{{ item.marca }}</ion-label>
+          <ion-label>{{ item.cor }}</ion-label>
+          <ion-label>{{ item.placa }}</ion-label>
+          <ion-label>{{ item.renavam }}</ion-label>
+        </ion-item>
+        <ion-item-options side="end">
+            <ion-item-option color="success" (click)="updateItem(item)">Update</ion-item-option>
+            <ion-item-option color="danger" (click)="deleteItem(item)">Delete</ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+</ion-content>
